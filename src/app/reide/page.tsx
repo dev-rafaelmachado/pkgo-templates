@@ -18,7 +18,7 @@ interface ReideForm {
 }
 
 export default function Reide() {
-  const { register, handleSubmit, setValue } = useForm<ReideForm>()
+  const { register, handleSubmit } = useForm<ReideForm>()
   const handleCopy = (data: ReideForm) => {
     const template = `
 📢 Organização de Reide 📢
@@ -31,7 +31,7 @@ Horário marcado: ${data.markedTime}
 ▶️ Participantes
 Nickname - lvl - time (🔵🟡🔴)
 
-1. ${data.nickname} - ${data.level} - ${data.level}
+1. ${data.nickname} - ${data.level} - ${data.team}
 2. 
 3. 
 4. 

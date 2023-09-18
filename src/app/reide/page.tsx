@@ -1,25 +1,25 @@
-"use client";
+'use client'
 
-import { CaretLeft, Clipboard } from "@phosphor-icons/react";
-import toast, { Toaster } from "react-hot-toast";
-import { useForm } from "react-hook-form";
-import Link from "next/link";
+import { CaretLeft, Clipboard } from '@phosphor-icons/react'
+import toast, { Toaster } from 'react-hot-toast'
+import { useForm } from 'react-hook-form'
+import Link from 'next/link'
 
 interface ReideForm {
-  pokemon: string;
-  local: string;
-  stars: string;
-  openTime: string;
-  markedTime: string;
-  nickname: string;
-  level: number;
-  team: string;
-  pcMeta: number;
-  strongType: string;
+  pokemon: string
+  local: string
+  stars: string
+  openTime: string
+  markedTime: string
+  nickname: string
+  level: number
+  team: string
+  pcMeta: number
+  strongType: string
 }
 
 export default function Reide() {
-  const { register, handleSubmit } = useForm<ReideForm>();
+  const { register, handleSubmit } = useForm<ReideForm>()
   const handleCopy = (data: ReideForm) => {
     const template = `
 📢 Organização de Reide 📢
@@ -58,17 +58,17 @@ Nickname - lvl - time (🔵🟡🔴)
 
 PC do 100%IV: ${data.pcMeta} PC
 Tipagem forte: ${data.strongType}
-`;
-    toast.success("Copiado para área de transferência");
-    navigator.clipboard.writeText(template);
-  };
+`
+    toast.success('Copiado para área de transferência')
+    navigator.clipboard.writeText(template)
+  }
 
   return (
     <>
       <main className="w-full h-full px-4 py-10 flex flex-col gap-12">
         <header>
-          <Link href={"/"}>
-            <CaretLeft size={"3rem"} />
+          <Link href={'/'}>
+            <CaretLeft size={'3rem'} />
           </Link>
         </header>
         <section className="w-full h-auto">
@@ -83,18 +83,18 @@ Tipagem forte: ${data.strongType}
                 className="w-full h-12 border rounded-lg pl-2 outline-none"
                 type="text"
                 placeholder="Pokemon"
-                {...register("pokemon")}
+                {...register('pokemon')}
               />
               <input
                 className="w-full h-12 border rounded-lg pl-2 outline-none"
                 type="text"
                 placeholder="Local"
-                {...register("local")}
+                {...register('local')}
               />
               <select
                 id="stars"
                 className="bg-white h-12 border rounded-lg px-2 block w-full outline-none text-gray-400"
-                {...register("stars")}
+                {...register('stars')}
               >
                 <option className="text-lg" value="">
                   Estrelas
@@ -110,13 +110,13 @@ Tipagem forte: ${data.strongType}
                   type="text"
                   placeholder="Horário de Abertura"
                   className="w-1/2 h-12 bg-white border px-2 rounded-lg outline-none"
-                  {...register("openTime")}
+                  {...register('openTime')}
                 />
                 <input
                   type="text"
                   placeholder="Horário Marcado"
                   className="w-1/2 bg-white border px-2 rounded-lg outline-none"
-                  {...register("markedTime")}
+                  {...register('markedTime')}
                 />
               </div>
             </div>
@@ -126,19 +126,19 @@ Tipagem forte: ${data.strongType}
                 className="w-full h-12 border rounded-lg pl-2 outline-none"
                 type="text"
                 placeholder="Nickname"
-                {...register("nickname")}
+                {...register('nickname')}
               />
               <div className="w-full flex gap-2">
                 <input
                   type="number"
                   placeholder="Level"
                   className="w-1/2 h-12 bg-white border px-2 rounded-lg outline-none"
-                  {...register("level")}
+                  {...register('level')}
                 />
                 <select
                   id="stars"
                   className="bg-white w-1/2 h-12 border rounded-lg px-2 block outline-none text-gray-400"
-                  {...register("team")}
+                  {...register('team')}
                 >
                   <option className="text-lg" value="">
                     Time
@@ -155,23 +155,23 @@ Tipagem forte: ${data.strongType}
                 className="w-full h-12 border rounded-lg pl-2 outline-none"
                 type="number"
                 placeholder="PC do IV 100%"
-                {...register("pcMeta")}
+                {...register('pcMeta')}
               />
               <input
                 className="w-full h-12 border rounded-lg pl-2 outline-none"
                 type="text"
                 placeholder="Tipagem forte"
-                {...register("strongType")}
+                {...register('strongType')}
               />
             </div>
             <button className="w-full font-bold flex items-center justify-center  gap-1 h-16 bg-blue-white text-black rounded-lg custom-shadow">
               Copiar Template
-              <Clipboard type="submit" size={"1.2rem"} />
+              <Clipboard type="submit" size={'1.2rem'} />
             </button>
           </form>
         </section>
       </main>
       <Toaster />
     </>
-  );
+  )
 }
